@@ -1,23 +1,29 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
 
 function App() {
-  const players = ['Shakib', 'Mustafiz', 'Mashrafe', 'Muminul'];
+  const players = ['Shakib', 'Mustafiz', 'Mashrafe', 'Muminul', 'Rubel', 'Tamim', 'Mahmudullah'];
 
   const adobeProducts = [
-    {name: 'Photoshop', 
-    price: '$100'},
-    {name: 'Lightroom', 
-    price: '$150'}
+    {name: 'Photoshop', price: '$100'},
+    {name: 'Lightroom', price: '$150'},
+    {name: 'PDF reader', price: '$50'},
+    {name: 'Premier', price: '$344'}
   ]
 
   return (
     <div className="App">
       <header className="App-header">
         <h1>This is React header</h1>
-        <Products product={adobeProducts[0]}></Products>
-        <Products product={adobeProducts[1]}></Products>
+        <ol>
+          {
+            players.map(players => <li>{players}</li>)
+          }
+        </ol>
+        {
+          adobeProducts.map(adobeProducts => <Products product={adobeProducts}></Products>)
+        }
+        
         
         <Player name={players[0]} role="All-rounder"></Player>
         <Player name={players[1]} role="Bowler"></Player>
@@ -37,8 +43,10 @@ function Products(props) {
     width: '200px',
     float: 'left',
     color: 'purple'
-  }
-  {/** Destructure */}
+  };
+
+  // eslint-disable-next-line no-lone-blocks
+  // Destructuring
   const {name, price} = props.product;
   
   return (

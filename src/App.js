@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './App.css';
 
 function App() {
@@ -14,7 +14,8 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <h1>This is React header</h1>
+        <h1>Practicing react core concepts</h1>
+        <Counter></Counter>
         <ol>
           {
             players.map(players => <li>{players}</li>)
@@ -32,6 +33,21 @@ function App() {
       </header>
     </div>
   );
+}
+
+function Counter(){
+  const [count, setCount] = useState(10);
+  /* const handleIncrease = () => {
+    const newCount = count + 1;
+    setCount(newCount);
+  }; */
+  return (
+    <div>
+      <h1>Count: {count} </h1>
+      <button onClick={() => setCount(count + 1)}>Increase</button>
+      <button onClick={() => setCount(count - 1)}>Decrease</button>
+    </div>
+  )
 }
 
 function Products(props) {
